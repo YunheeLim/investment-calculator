@@ -1,53 +1,41 @@
-export default function UserInput(props) {
-
-  function handleInitialInvestment(e) {
-    props.onSetInitial_investment(e.target.value);
-    if(Number(e.target.value) < 1){
-      alert('Please enter a number bigger than 0')
-    }
-  }
-
-  function handleAnnualInvestment(e) {
-    props.onSetAnnual_investment(e.target.value);
-    if(Number(e.target.value) < 1){
-      alert('Please enter a number bigger than 0')
-    }
-  }
-
-  function handleExpected_return(e) {
-    props.onSetExpected_return(e.target.value);
-    if(Number(e.target.value) < 1){
-      alert('Please enter a number bigger than 0')
-    }
-  }
-
-  function handleDuration(e) {
-    props.onSetDuration(e.target.value);
-    if(Number(e.target.value) < 1){
-      alert('Please enter a number bigger than 0')
-    }
-  }
+export default function UserInput({ userInput, onChange }) {
 
   return (
     <section id="user-input">
       <div className="input-group">
         <p>
           <label> INITIAL INVESTMENT</label>
-          <input type="number" onChange={handleInitialInvestment}/>
+          <input 
+            type="number" 
+            required 
+            value={userInput.initialInvestment}
+            onChange={(event) => onChange('initialInvestment', event.target.value)}/>
         </p>
         <p>
           <label> ANNUAL INVESTMENT</label>
-          <input type="number" onChange={handleAnnualInvestment}/>
+          <input 
+            type="number" 
+            required 
+            value={userInput.annualInvestment}
+            onChange={(event) => onChange('annualInvestment', event.target.value)}/>        
         </p>
       </div>
       <div className="input-group">
         <p>
           <label>EXPECTED RETURN</label>
-          <input type="number" onChange={handleExpected_return}/>
+          <input 
+            type="number" 
+            required 
+            value={userInput.expectedReturn}
+            onChange={(event) => onChange('expectedReturn', event.target.value)}/>        
         </p>
         <p>
           <label>DURATION</label>
-          <input type="number" onChange={handleDuration}/>
+          <input 
+            type="number" 
+            required 
+            value={userInput.duration}
+            onChange={(event) => onChange('duration', event.target.value)}/>        
         </p>
       </div>
     </section>
