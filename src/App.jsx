@@ -17,7 +17,12 @@ function App() {
         onSetExpected_return={setExpected_return}
         onSetDuration={setDuration}
       />
-      <Result />
+      <Result 
+        initial_investment={initial_investment}
+        annual_investment={annual_investment}
+        expected_return={expected_return}
+        duration={duration}
+      />
     </>
 
   );

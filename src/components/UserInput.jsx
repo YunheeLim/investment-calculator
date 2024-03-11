@@ -1,21 +1,31 @@
-import { useState } from "react";
-
 export default function UserInput(props) {
 
   function handleInitialInvestment(e) {
     props.onSetInitial_investment(e.target.value);
+    if(Number(e.target.value) < 1){
+      alert('Please enter a number bigger than 0')
+    }
   }
 
   function handleAnnualInvestment(e) {
     props.onSetAnnual_investment(e.target.value);
+    if(Number(e.target.value) < 1){
+      alert('Please enter a number bigger than 0')
+    }
   }
 
   function handleExpected_return(e) {
     props.onSetExpected_return(e.target.value);
+    if(Number(e.target.value) < 1){
+      alert('Please enter a number bigger than 0')
+    }
   }
 
   function handleDuration(e) {
     props.onSetDuration(e.target.value);
+    if(Number(e.target.value) < 1){
+      alert('Please enter a number bigger than 0')
+    }
   }
 
   return (
